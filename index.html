@@ -74,11 +74,11 @@
           </p>
 
           <div class="hero-buttons">
-            <a href="/teste-gratis" class="button button-outline">
+            <a href="/teste-gratis" class="button button-outline button-outline-start">
               Começar grátis
             </a>
 
-            <a href="#demonstracao" class="button button-outline">
+            <a href="#demonstracao" class="button button-outline button-outline-demo">
               Ver demonstração
             </a>
           </div>
@@ -159,7 +159,7 @@
     <div class="features-grid">
 
       <article class="feature-card">
-        <div class="feature-icon">♧</div>
+        <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-users"></i></div>
         <h3>Hub operacional</h3>
         <p>
           Carteira organizada: cadastro, certificado, responsáveis e
@@ -168,7 +168,7 @@
       </article>
 
       <article class="feature-card">
-        <div class="feature-icon">☆</div>
+        <div class="feature-icon" aria-hidden="true"><i class="fa-regular fa-star"></i></div>
         <h3>Processos e entregas</h3>
         <p>
           Obrigações do mês em Kanban: etapas, prazos, anexos e quem cuida de
@@ -177,7 +177,7 @@
       </article>
 
       <article class="feature-card">
-        <div class="feature-icon">▣</div>
+        <div class="feature-icon" aria-hidden="true"><i class="fa-solid fa-display"></i></div>
         <h3>Automações<br />fiscais/contábeis</h3>
         <p>
           O sistema baixa, calcula, declara e gera guia. Menos trabalho manual
@@ -186,7 +186,7 @@
       </article>
 
       <article class="feature-card feature-card-highlight">
-        <div class="feature-icon">▭</div>
+        <div class="feature-icon" aria-hidden="true"><i class="fa-regular fa-credit-card"></i></div>
         <h3>BPO Financeiro</h3>
         <p>
           Integração diretamente com o banco para conciliação e exportação
@@ -216,7 +216,7 @@
     <div class="operation-benefits">
       <article class="operation-card">
         <div class="operation-icon-wrap">
-          <span class="operation-icon">☆</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
         </div>
 
         <h3>Processos Padronizados</h3>
@@ -228,7 +228,7 @@
 
       <article class="operation-card">
         <div class="operation-icon-wrap">
-          <span class="operation-icon">☼</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"></path></svg>
         </div>
 
         <h3>Automação de Etapas</h3>
@@ -240,7 +240,7 @@
 
       <article class="operation-card">
         <div class="operation-icon-wrap">
-          <span class="operation-icon">◔</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>
         </div>
 
         <h3>Visão da Operação</h3>
@@ -386,7 +386,9 @@
         unificadas
       </h2>
 
-      <h3>Fiscal, contábil e financeiro juntos</h3>
+      <h3 style="
+       color: #8f1fcf;
+       ">Fiscal, contábil e financeiro juntos</h3>
 
       <p class="fiscal-description">
         Parametrize as regras fiscais uma vez e use a mesma base para gerar

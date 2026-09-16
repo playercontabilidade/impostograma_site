@@ -188,17 +188,33 @@ button {
 .header.scrolled .button-light {
     background: #5d1c96;
     color: #0e0d0d;
-    border-color: #5d1c96
+    border-color: #faf9fc
+}
+
+.header.scrolled .button-outline {
+    color: #000;
 }
 
 .button-outline {
-    color: #0a0a0a;
+    color: #f7f4f4;
     border-color: rgba(207, 195, 231)
 
     
 }
+.button-outline-start {
+    color: #fcfafa;
+    background: transparent;
+    border-color: rgba(207, 195, 231)
+}
+
+.button-outline-demo {
+    color: #fdf8f8;
+    background: transparent;
+    border-color: rgba(207, 195, 231)
+}
+
 .button-outline1 {
-    color :#f0ecec;
+    color :#fcfbfb;
     border-color: rgba(207 195 231)
 
 }
@@ -560,44 +576,71 @@ button {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px
+    gap: 18px
 }
 
 .feature-card {
-    padding: 27px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 24px 23px;
     min-height: 210px;
     border: 1px solid var(--line);
-    border-radius: 13px;
-    background: #fff
+    border-radius: 16px;
+    background: linear-gradient(145deg, #fff 0%, #fcfbff 100%);
+    box-shadow: 0 8px 24px rgba(23, 22, 43, .04);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: #c9b4e8;
+    box-shadow: 0 16px 30px rgba(64, 33, 132, .12)
 }
 
 .feature-card-highlight {
     background: var(--violet);
     border-color: var(--violet);
-    color: #fff
+    color: #fff;
+    box-shadow: 0 12px 28px rgba(108, 60, 240, .22)
+}
+
+.feature-card-highlight:hover {
+    border-color: var(--violet);
+    box-shadow: 0 18px 34px rgba(108, 60, 240, .3)
 }
 
 .feature-icon,
 .operation-icon {
-    font-size: 27px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #f1ecff;
+    font-size: 21px;
     color: var(--violet)
 }
 
 .feature-card-highlight .feature-icon {
-    color: var(--mint)
+    background: rgba(255, 255, 255, .14);
+    color: #fff
 }
 
 .feature-card h3,
 .operation-card h3 {
-    margin: 30px 0 9px;
-    font-size: 18px
+    margin: 21px 0 8px;
+    font-size: 17px;
+    line-height: 1.25
 }
 
 .feature-card p,
 .operation-card p {
     margin: 0;
     color: var(--muted);
-    font-size: 14px
+    font-size: 14px;
+    line-height: 1.55
 }
 
 .feature-card-highlight p {
@@ -903,15 +946,16 @@ button {
 }
 
 .fiscal-card-purple {
-    background: #7951e8
+    background: #6e17a0
 }
 
 .fiscal-card-dark {
-    background: #2b2641
+    background: #030712
 }
 
 .fiscal-card h3 {
     margin: 0;
+    color: #fff;
     font-size: 27px
 }
 
