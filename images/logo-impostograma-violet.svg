@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 436 96" role="img" aria-labelledby="title">
+  <title id="title">Impostograma</title>
+  <g fill="#7415a8">
+    <path d="M34 7a5 5 0 0 1 5 5v7.2c5.8 2 10 7.5 10 14.3v9.2c0 6-3.2 11.2-8 14.1V86a6 6 0 0 1-12 0V56.8a16 16 0 0 1-8-14.1v-9.2c0-6.8 4.2-12.3 10-14.3V12a5 5 0 0 1 5-5h-2zm-3 27.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm10 0a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
+    <circle cx="36" cy="2.5" r="2.5"/>
+    <text x="59" y="64" font-family="Arial Rounded MT Bold, Nunito, Arial, sans-serif" font-size="46" font-weight="700" letter-spacing="-2.6">Impostograma</text>
+  </g>
+</svg>
