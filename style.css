@@ -187,19 +187,20 @@ button {
 
 .header.scrolled .button-light {
     background: #5d1c96;
-    color: #fff;
+    color: #0e0d0d;
     border-color: #5d1c96
 }
 
 .button-outline {
-    color: #f5f3f3;
-    border-color: rgba(207 195 231)
+    color: #0a0a0a;
+    border-color: rgba(207, 195, 231)
 
     
 }
 .button-outline1 {
-    color :#030712
+    color :#f0ecec;
     border-color: rgba(207 195 231)
+
 }
 
 .hero {
@@ -867,16 +868,16 @@ button {
 }
 
 .fiscal-section {
-    background: #1b1730;
-    color: white
+    background: #ebe0f5;
+    color: rgb(8, 8, 8)
 }
 
 .fiscal-content .section-tag {
-    color: var(--mint)
+    color: rgb(143, 31, 207);
 }
 
 .fiscal-description {
-    color: #cec9dc
+    color: #0d0d0e;
 }
 
 .fiscal-content h3 {
