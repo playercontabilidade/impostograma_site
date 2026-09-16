@@ -49,9 +49,9 @@ button {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: #5d1c96;
+    background: rgb(110 23 159);
     color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 1px solid rgba(253, 253, 253, 0.08);
     backdrop-filter: blur(12px);
     transition: background .25s ease, box-shadow .25s ease, color .25s ease
 }
@@ -70,8 +70,8 @@ button {
 }
 
 .logo img {
-    width: 196px;
-    max-height: 60px;
+    width: 230px;
+    max-height: px;
     object-fit: contain;
     filter: brightness(1.1) contrast(1.1);
     transition: filter .25s ease
@@ -223,7 +223,7 @@ button {
     position: relative;
     overflow: hidden;
     padding: 72px 0 80px;
-    background: linear-gradient(135deg, #5d1c96 0%, #5d1c96 100%);
+    background: linear-gradient(135deg, rgb(110 23 159) 0%, rgb(110 23 159) 100%);
     color: #fff
 }
 
@@ -247,8 +247,8 @@ button {
 }
 
 .hero-logo {
-    width: 230px;
-    height: 62px;
+    width: 300px;
+    height: 100px;
     object-fit: contain;
     object-position: left;
     margin-bottom: 28px;
@@ -510,15 +510,11 @@ button {
 .modules-strip ul {
     min-width: max-content;
     justify-content: flex-start;
-    animation: obligations-ticker 34s linear infinite;
+    animation: 28s linear infinite ticker;
     will-change: transform
 }
 
-.modules-strip:hover ul {
-    animation-play-state: paused
-}
-
-@keyframes obligations-ticker {
+@keyframes ticker {
     to {
         transform: translateX(-50%)
     }
@@ -531,7 +527,7 @@ button {
 }
 .section{ 
     .ticker-inner {
-    animation: 28s linear infinite ticker;
+     animation: 28s linear infinite ticker;
 }
 }
 .section-tag {
@@ -2039,7 +2035,8 @@ section:empty {
     }
 
     .logo img {
-        width: 126px
+        width: 155px;
+        max-height: 48px
     }
 
     .header-actions {
