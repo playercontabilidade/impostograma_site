@@ -51,22 +51,28 @@ button {
     z-index: 20;
     background: rgb(110 23 159);
     color: #fff;
-    border-bottom: 1px solid rgba(253, 253, 253, 0.08);
+    border-bottom: none;
     backdrop-filter: blur(12px);
-    transition: background .25s ease, box-shadow .25s ease, color .25s ease
+    transition: background .35s ease, box-shadow .35s ease, color .35s ease
 }
 
 .header.scrolled {
     background: rgba(255, 255, 255, .96);
     color: #221b2c;
-    box-shadow: 0 10px 30px rgba(28, 16, 52, .08)
+    box-shadow: 0 8px 24px rgba(28, 16, 52, .08)
 }
 
 .header-content {
     min-height: 82px;
     display: flex;
     align-items: center;
-    gap: 18px
+    gap: 12px
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center
 }
 
 .logo img {
@@ -82,12 +88,16 @@ button {
 }
 
 .main-nav {
-    margin-left: auto
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-left: 6px
 }
 
 .main-nav ul {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: nowrap;
     gap: 26px;
     padding: 0;
@@ -100,7 +110,8 @@ button {
     font-weight: 500;
     color: #f0e7ff;
     white-space: nowrap;
-    transition: .2s
+    display: inline-block;
+    transition: transform .2s ease, color .2s ease, opacity .2s ease
 }
 
 .header.scrolled .main-nav a,
@@ -111,7 +122,14 @@ button {
 
 .main-nav a:hover,
 .login-link:hover {
-    color: #fff
+    color: #fff;
+    transform: translateY(-1px)
+}
+
+.header.scrolled .main-nav a:hover,
+.header.scrolled .login-link:hover {
+    color: #2a1f38;
+    transform: translateY(-1px)
 }
 
 .header-actions {
@@ -187,12 +205,13 @@ button {
 
 .header.scrolled .button-light {
     background: #5d1c96;
-    color: #0e0d0d;
-    border-color: #faf9fc
+    color: #fff;
+    border-color: transparent
 }
 
 .header.scrolled .button-outline {
-    color: #000;
+    color: #2a1f38;
+    border-color: rgba(61, 42, 88, .18)
 }
 
 .button-outline {
@@ -303,7 +322,52 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0
+    padding: 0;
+    perspective: 1200px;
+    transition: transform .35s ease, filter .35s ease
+}
+
+.hero-image:hover {
+    transform: translateY(-8px)
+}
+
+.hero-image:hover::before {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1.08)
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    width: 88%;
+    height: 72%;
+    border-radius: 32px;
+    background: radial-gradient(circle at 30% 20%, rgba(212, 164, 255, .9) 0%, rgba(168, 109, 255, .42) 18%, rgba(143, 31, 207, .18) 38%, rgba(255, 255, 255, 0) 72%);
+    filter: blur(24px);
+    opacity: 0;
+    transform: translate3d(18px, 8px, 0) scale(.9);
+    animation: heroGlow 1.8s ease-out forwards .15s;
+    pointer-events: none
+}
+
+.hero-image img {
+    position: relative;
+    display: block;
+    width: min(700px, 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, .22);
+    box-shadow: 0 28px 65px rgba(17, 10, 25, .34), 0 14px 32px rgba(143, 31, 207, .18);
+    background: rgba(255, 255, 255, .04);
+    opacity: 0;
+    transform: translate3d(80px, 0, 0) scale(.98);
+    transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+    animation: heroEnterRight 1.6s cubic-bezier(.2, .78, .2, 1) forwards .18s;
+    will-change: transform, opacity
+}
+
+.hero-image:hover img {
+    transform: translate3d(0, -8px, 0) scale(1.01);
+    box-shadow: 0 34px 72px rgba(17, 10, 25, .38), 0 18px 36px rgba(143, 31, 207, .22)
 }
 
 .dashboard-window {
@@ -465,71 +529,140 @@ button {
 }
 
 .modules-strip {
+    position: relative;
     overflow: hidden;
-    background: #fff;
-    border-top: 1px solid #d1d5db;
-    border-bottom: 1px solid #d1d5db
+    background: linear-gradient(90deg, rgba(245, 241, 255, 0.92) 0%, rgba(255,255,255,0.96) 12%, rgba(255,255,255,0.98) 88%, rgba(245, 241, 255, 0.92) 100%);
+    border-top: 1px solid rgba(143, 31, 207, 0.2);
+    border-bottom: 1px solid rgba(143, 31, 207, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.7)
 }
 
-.modules-strip ul {
+.modules-strip::before,
+.modules-strip::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 1;
+    pointer-events: none
+}
+
+.modules-strip::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(245, 241, 255, 0.96) 0%, rgba(245, 241, 255, 0) 100%)
+}
+
+.modules-strip::after {
+    right: 0;
+    background: linear-gradient(270deg, rgba(245, 241, 255, 0.96) 0%, rgba(245, 241, 255, 0) 100%)
+}
+
+.ticker-track {
+    display: flex;
     width: max-content;
     min-width: 100%;
+    animation: ticker 30s linear infinite;
+    will-change: transform
+}
+
+.ticker-list {
     display: flex;
-    justify-content: center;
-    gap: 24px;
+    align-items: center;
+    gap: 28px;
     margin: 0;
-    padding: 14px 28px;
+    padding: 15px 32px;
     list-style: none;
-    color: #111827;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .05em;
-    text-transform: uppercase
+    min-width: max-content;
+    color: rgba(17, 24, 39, 0.9);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.8)
 }
 
 .modules-strip li {
     display: flex;
     align-items: center;
-    gap: 12px;
-    white-space: nowrap
+    gap: 14px;
+    white-space: nowrap;
+    opacity: 0.92;
+    transition: opacity 0.25s ease, transform 0.25s ease
+}
+
+.modules-strip li:hover {
+    opacity: 1;
+    transform: translateY(-1px)
 }
 
 .modules-strip li:before {
-    content: "•";
+    content: "";
     display: inline-block;
-    width: 4px;
-    height: 4px;
-    flex: 0 0 4px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    color: transparent;
-    background: #941fcf;
-    margin-right: 0
+    background: linear-gradient(135deg, #8f1fcf 0%, #c768ff 100%);
+    box-shadow: 0 0 0 2px rgba(143, 31, 207, 0.12);
+    flex: 0 0 7px
 }
 
-/* Faixa contínua de obrigações */
-.modules-strip ul {
-    min-width: max-content;
-    justify-content: flex-start;
-    animation: 28s linear infinite ticker;
-    will-change: transform
+@keyframes heroEnterRight {
+    0% {
+        opacity: 0;
+        transform: translate3d(90px, 0, 0) scale(.985)
+    }
+
+    58% {
+        opacity: 1;
+        transform: translate3d(-8px, 0, 0) scale(1.005)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1)
+    }
+}
+
+@keyframes heroGlow {
+    0% {
+        opacity: 0;
+        transform: translate3d(24px, 8px, 0) scale(.88)
+    }
+
+    28% {
+        opacity: .75
+    }
+
+    100% {
+        opacity: .9;
+        transform: translate3d(0, 0, 0) scale(1)
+    }
 }
 
 @keyframes ticker {
+    from {
+        transform: translateX(0)
+    }
+
     to {
         transform: translateX(-50%)
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .modules-strip ul {
+    .ticker-track {
         animation: none
     }
+
+    .hero-image::before,
+    .hero-image img {
+        animation: none;
+        opacity: 1;
+        transform: none
+    }
 }
-.section{ 
-    .ticker-inner {
-     animation: 28s linear infinite ticker;
-}
-}
+
 .section-tag {
     margin: 0 0 17px;
     color: var(--violet);
@@ -1641,7 +1774,15 @@ button {
     padding: 28px;
     border: 1px solid #d1d5db;
     border-radius: 16px;
-    background: #fff
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(26, 15, 47, .04);
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    border-color: #c7adf3;
+    box-shadow: 0 18px 40px rgba(77, 32, 124, .12)
 }
 
 .plan-name {
@@ -1719,12 +1860,13 @@ button {
     color: #8e22d6;
     font-size: 14px;
     font-weight: 700;
-    transition: transform .2s, background .2s
+    transition: transform .2s ease, background .2s ease, box-shadow .2s ease
 }
 
 .plan-button:hover {
     transform: translateY(-2px);
-    background: #e3d8ff
+    background: #e3d8ff;
+    box-shadow: 0 10px 20px rgba(128, 54, 197, .12)
 }
 
 .pricing-card-featured {
@@ -1733,7 +1875,15 @@ button {
     margin-top: 0;
     border-color: #6e18a4;
     background: linear-gradient(145deg, #7920b9, #6814a0);
-    color: #fff
+    color: #fff;
+    box-shadow: 0 16px 34px rgba(66, 19, 97, .18);
+    transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease
+}
+
+.pricing-card-featured:hover {
+    transform: translateY(-10px);
+    border-color: #8f3dce;
+    box-shadow: 0 22px 44px rgba(66, 19, 97, .22)
 }
 
 .popular-badge {
