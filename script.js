@@ -1,11 +1,23 @@
 const header = document.querySelector('.header');
+const root = document.documentElement;
+
 const updateHeaderState = () => {
   if (!header) return;
   header.classList.toggle('scrolled', window.scrollY > 12);
 };
 
-window.addEventListener('scroll', updateHeaderState, { passive: true });
+const updateParallax = () => {
+  const shift = Math.min(window.scrollY * 0.22, 120);
+  root.style.setProperty('--scroll-shift', `${shift}px`);
+};
+
+window.addEventListener('scroll', () => {
+  updateHeaderState();
+  updateParallax();
+}, { passive: true });
+
 updateHeaderState();
+updateParallax();
 
 const modules = [
   { title: 'Gestão de Clientes', description: 'A empresa vira o hub do escritório: cadastro, certificado, tags, histórico e responsáveis por área — fiscal, contábil e pessoal — sem atrito na equipe.', benefits: ['Ficha operacional completa com CNPJ, CNAE e regime', 'Responsáveis certos por área sem conflito', 'Certificados .pfx e .p12 centralizados', 'Acesso externo: cliente acompanha sem ligar'] },
